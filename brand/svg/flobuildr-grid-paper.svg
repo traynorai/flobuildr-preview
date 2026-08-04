@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <!-- Carbon paper field (#E3E4E8) with neutral grid rules. Source of truth for light blueprint backgrounds. -->
+  <defs>
+    <pattern id="minor" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0V32 M0 32H32" stroke="#6E7278" stroke-opacity="0.22" stroke-width="1" fill="none"/>
+    </pattern>
+    <pattern id="major" width="128" height="128" patternUnits="userSpaceOnUse">
+      <path d="M128 0V128 M0 128H128" stroke="#43464C" stroke-opacity="0.18" stroke-width="1.25" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="400" fill="#E3E4E8"/>
+  <rect width="640" height="400" fill="url(#minor)"/>
+  <rect width="640" height="400" fill="url(#major)"/>
+</svg>
