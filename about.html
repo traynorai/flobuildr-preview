@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
@@ -38,6 +42,7 @@
           <a href="who-its-for.html">Who it's for</a>
           <a href="pricing.html">Pricing</a>
           <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
           <a href="https://app.flobuildr.com/login">Sign in</a>
           <a href="start.html" class="nav-cta nav-cta--primary">Start free trial</a>
         </div>
@@ -51,10 +56,9 @@
     <p class="section-lead">FloBuildr started on a real job site, not in a software office.</p>
   </div></section>
 
-  <!-- Founder photo: Jake + Bradley, from Bradley's job site. Placeholder until supplied. -->
-  <section class="section section--ink"><div class="container">
-    <div class="founder-slot">Founder photo slot</div>
-  </div></section>
+  <!-- REPLACE: founder photo, Jake and Bradley on Bradley's job site, Jake/Bradley to supply.
+       The empty placeholder box was removed rather than shipped blank. Restore this section
+       with the real photo when it arrives. -->
 
   <section class="section section--graphite"><div class="container">
     <h2>The problem we lived.</h2>
@@ -77,8 +81,18 @@
     whole jobs, led by the roofing-heavy GCs we know best, because that is where we started.</p>
   </div></section>
 
+  <!-- Real, sourced, permission granted. The hours-saved figure is Bradley's own estimate and
+       stays inside his attributed quote. Do not lift it into a FloBuildr headline stat. -->
+  <section class="section section--ink"><div class="container">
+    <p class="section-label">From a shop running it</p>
+    <blockquote class="pull-quote">
+      <p>“We’ve done about 20 jobs end to end, with around 30 people in the system, employees and subs. Estimates go out with e-sign so we’re not chasing PDFs. Workflows handle the follow-ups that used to eat the day. Customers get a portal and pay right there. Sales, office, and project management stay on the same job the whole way through. Even though we’re busier, I estimate we’re saving 30 to 40 hours a week across the company.”</p>
+      <footer class="pull-quote-meta"><strong>Bradley McHugh</strong>, Owner, <a class="quote-link" href="https://mcaupstate.com/" target="_blank" rel="noopener">MCA Construction &amp; Roofing</a></footer>
+    </blockquote>
+  </div></section>
+
   <section class="cta-band"><div class="container">
-    <h2>Run the whole job on one tool.</h2>
+    <h2>Every job. One platform.</h2>
     <p class="section-lead">Start free and run a real job end to end, or bring your tool list and
     we will walk it with you.</p>
     <div class="hero-actions" style="justify-content:center">
@@ -92,7 +106,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -105,16 +119,8 @@
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
+  <meta name="robots" content="noindex, follow" />
+  <!-- STAGED, not live. Not linked from the nav, the footer, or the sitemap, and
+       noindexed, until Jake clears these pages. Reachable by direct URL for review.
+       No competitor is named on this page by deliberate decision (legal caution,
+       Pat and Jake). Do not reintroduce competitor names here. -->
   <meta name="description" content="A roofing GC pays for two tools. Worked cost against one flat price, unlimited users." />
   <title>FloBuildr vs the two tool stack | FloBuildr</title>
   <link rel="canonical" href="https://flobuildr.com/compare-the-stack" />
@@ -38,6 +47,7 @@
           <a href="who-its-for.html">Who it's for</a>
           <a href="pricing.html">Pricing</a>
           <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
           <a href="https://app.flobuildr.com/login">Sign in</a>
           <a href="start.html" class="nav-cta nav-cta--primary">Start free trial</a>
         </div>
@@ -58,9 +68,9 @@
         <p class="cost-sub">Roofing tool plus GC tool, a 10 person roofing GC</p>
         <p class="cost-total">$1,649 to $2,349<span> / mo</span></p>
         <ul class="cost-math">
-          <li><span>Acculynx base</span><span>$250</span></li>
+          <li><span>Roofing CRM, base</span><span>$250</span></li>
           <li><span>10 users at about $100 each</span><span>$1,000</span></li>
-          <li><span>GC tool, JobTread $399 to Buildertrend $1,099</span><span>$399 to $1,099</span></li>
+          <li><span>GC platform</span><span>$399 to $1,099</span></li>
         </ul>
         <p class="cost-note">Add-ons on top of that. Two logins, two bills, and no shared job record.</p>
       </div>
@@ -76,15 +86,16 @@
         <p class="cost-note">One record from first call to final payment.</p>
       </div>
     </div>
+    <p class="stack-real">A real one. One shop we work with, MCA Construction &amp; Roofing, was paying about $2,500 to $3,000 a month for a roofing CRM, about $500 for a job photo app, and AI subscriptions on top. Roughly $3,000 a month across the stack. They run the whole job on FloBuildr now at $399.</p>
     <p class="cost-land">The whole job, every user, for less than you pay for one tool in the stack.</p>
-    <p class="cmp-source">Figures are from public pricing in our Competitor Pricing and Capability Map, June 2026. Your quote may vary.</p>
+    <p class="cmp-source">The columns above are public pricing for the leading tool in each category, from our Competitor Pricing and Capability Map, June 2026. The MCA figures are what their owner told us, given as a range because that is how he gave it. Your quote may vary.</p>
   </div></section>
 
   <section class="section section--graphite"><div class="container">
     <h2>Feature by feature.</h2>
     <div class="grid-scroll">
       <table class="cmp-table">
-        <thead><tr><th scope="col">Capability</th><th>FloBuildr</th><th>Roofing tool (JobNimbus)</th><th>GC tool (JobTread)</th></tr></thead>
+        <thead><tr><th scope="col">Capability</th><th>FloBuildr</th><th>Roofing tool</th><th>GC platform</th></tr></thead>
         <tbody>
         <tr><th scope="row">One record covering roofing and the GC job</th><td><span class="mk mk--y" title="has it">&#10003;</span></td><td><span class="mk mk--n" title="absent">&ndash;</span></td><td><span class="mk mk--n" title="absent">&ndash;</span></td></tr>
         <tr><th scope="row">Worksheet lifecycle that takes action</th><td><span class="mk mk--y" title="has it">&#10003;</span></td><td><span class="mk mk--n" title="absent">&ndash;</span></td><td><span class="mk mk--p" title="partial">~</span></td></tr>
@@ -101,7 +112,7 @@
       <span class="mk mk--p">~</span> partial
       <span class="mk mk--n">&ndash;</span> absent
       <span class="mk mk--u">?</span> not documented in our research</p>
-    <p class="cmp-source">Roofing and GC columns use JobNimbus and JobTread, the two tools in our feature matrix that represent each side of the stack. Acculynx and Buildertrend appear in the pricing map but Acculynx has no column in the feature matrix.</p>
+    <p class="cmp-source">The roofing and GC columns use the leading tool on each side of the stack, as recorded in our feature comparison matrix, June 2026. Other tools in that category appear in the pricing map without a full feature column.</p>
   </div></section>
 
   <section class="section section--ink"><div class="container">
@@ -118,9 +129,9 @@
   <section class="section section--graphite"><div class="container">
     <p class="section-label">See also</p>
     <div class="cmp-links">
-        <a href="compare-acculynx.html">FloBuildr vs Acculynx</a>
-        <a href="compare-jobtread.html">FloBuildr vs JobTread</a>
-        <a href="compare-procore.html">FloBuildr vs Procore</a>
+        <a href="compare-roofing-crm.html">vs a roofing CRM</a>
+        <a href="compare-gc-platform.html">vs a GC platform</a>
+        <a href="compare-enterprise-pm.html">vs an enterprise platform</a>
     </div>
   </div></section>
 
@@ -138,7 +149,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -151,16 +162,8 @@
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

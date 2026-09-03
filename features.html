@@ -2,28 +2,85 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
   <meta name="description" content="Estimating, pipeline, worksheet, scheduling, job costing, invoicing, customer portal, and workflows, all on one Job Profile. Unlimited users, one flat price." />
-  <title>Features, everything the job needs, on one record | FloBuildr</title>
+  <title>Construction software features, estimate, schedule, cost | FloBuildr</title>
   <link rel="canonical" href="https://flobuildr.com/features" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="FloBuildr" />
   <meta property="og:url" content="https://flobuildr.com/features" />
-  <meta property="og:title" content="FloBuildr features | the Job Profile is the product" />
+  <meta property="og:title" content="Construction software features on one job record" />
   <meta property="og:description" content="Estimating, pipeline, worksheet, scheduling, job costing, invoicing, customer portal, and workflows, all on one record." />
   <meta property="og:image" content="https://flobuildr.com/images/og-flobuildr.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FloBuildr features | the Job Profile is the product" />
+  <meta name="twitter:title" content="Construction software features on one job record" />
   <meta name="twitter:description" content="Estimating through final payment, all on one record." />
   <meta name="twitter:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favIcon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flobuildr.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Features",
+      "item": "https://flobuildr.com/features"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -47,8 +104,8 @@
 
   <section class="page-hero page-hero--blueprint"><div class="container">
     <p class="section-label">Features</p>
-    <h1>One tool runs the whole job</h1>
-    <p class="section-lead">Everything about a piece of work lives on one record, from the first call through final payment. No handoff between “sales software” and “project software.”</p>
+    <h1>Estimating, scheduling, and job costing on one record</h1>
+    <p class="section-lead">The Job Profile is the product. Everything about a piece of work lives on one record, from the first call through final payment. No handoff between “sales software” and “project software.”</p>
   </div></section>
 
   <nav class="hub-nav" aria-label="Feature areas"><div class="container">
@@ -110,16 +167,24 @@
           <p>Lead → Prospect → Approved → In progress → Completed → Closed. Stage values roll up so you see active pipeline and total pipeline at a glance. Advance a job when it’s ready, or let an accepted estimate move it for you.</p>
         </div>
         <div class="feature-frame">
-          <img src="images/pipeline.png" alt="Unified pipeline with stage totals and job list" />
+          <picture>
+            <source type="image/webp" srcset="images/pipeline.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="images/pipeline.png" alt="Unified pipeline with stage totals and job list" width="1600" height="1015" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band feature-band--flip">
         <div class="feature-copy">
           <h3>Estimates that become the work</h3>
-          <p>Line-item library, sections, markup, tax, live distributor pricing, and FloBuildr AI to draft the pricing. Send for e-sign with an optional contract template attached. Accepted estimates auto-advance the job; pull them into the worksheet so production doesn’t rebuild the bid.</p>
+          <p>Line-item library, sections, markup, tax, live distributor pricing, and FloBuildr AI price assist working from regional benchmarks on real job data. Send for e-sign with an optional contract template attached. Accepted estimates auto-advance the job; pull them into the worksheet so production doesn’t rebuild the bid.</p>
         </div>
         <div class="feature-frame">
-          <img src="images/job-estimates.png" alt="Estimates on a job with accepted and draft statuses" />
+          <picture>
+            <source type="image/webp" srcset="images/job-estimates.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="images/job-estimates.png" alt="Estimates on a job with accepted and draft statuses" width="1600" height="1124" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band">
@@ -128,7 +193,11 @@
           <p>Each worksheet line carries status, crew, dates, and links to POs and receipts. Advancing status can create the purchase order or log delivery. Job schedules publish to a company calendar filtered by tags, labor, materials, permits, and punch.</p>
         </div>
         <div class="feature-frame">
-          <img src="images/job-worksheet.png" alt="Job worksheet with line status, crew, and dates" />
+          <picture>
+            <source type="image/webp" srcset="images/job-worksheet.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="images/job-worksheet.png" alt="Job worksheet with line status, crew, and dates" width="1600" height="1124" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band feature-band--flip">
@@ -137,7 +206,11 @@
           <p>See contract value, accepted estimates, budget, committed, actual spent, invoiced, and collected, including overruns by line type. Bill the way contractors bill; customers pay online in the portal.</p>
         </div>
         <div class="feature-frame">
-          <img src="images/job-budget.png" alt="Budget vs Actual financial summary on a job" />
+          <picture>
+            <source type="image/webp" srcset="images/job-budget.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="images/job-budget.png" alt="Budget vs Actual financial summary on a job" width="1600" height="1000" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
     </div>
@@ -177,29 +250,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
         <a href="start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

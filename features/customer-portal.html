@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
@@ -20,10 +24,69 @@
   <meta name="twitter:title" content="FloBuildr | a window into the job for the homeowner" />
   <meta name="twitter:description" content="Portal progress, docs, photos, and online pay on one job record." />
   <meta name="twitter:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="../brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="alternate icon" href="../favIcon.ico" />
   <link rel="stylesheet" href="../styles.css" />
   <script src="../obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flobuildr.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Features",
+      "item": "https://flobuildr.com/features"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Customer portal",
+      "item": "https://flobuildr.com/features/customer-portal"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -53,12 +116,12 @@
 
   <nav class="hub-nav" aria-label="Feature areas"><div class="container">
     <a href="../features.html">Overview</a>
-    <a href="win-the-work.html">Win the work</a>
-    <a href="run-the-job.html">Run the job</a>
-    <a href="costing-and-payments.html">Costing &amp; payments</a>
-    <a href="customer-portal.html" aria-current="page">Customer portal</a>
-    <a href="field-and-crew.html">Field &amp; crew</a>
-    <a href="office-and-platform.html">Office &amp; platform</a>
+    <a href="../features/win-the-work.html">Win the work</a>
+    <a href="../features/run-the-job.html">Run the job</a>
+    <a href="../features/costing-and-payments.html">Costing &amp; payments</a>
+    <a href="../features/customer-portal.html" aria-current="page">Customer portal</a>
+    <a href="../features/field-and-crew.html">Field &amp; crew</a>
+    <a href="../features/office-and-platform.html">Office &amp; platform</a>
   </div></nav>
 
   <section class="section section--ink">
@@ -69,7 +132,11 @@
           <p>Homeowners get a private portal link tied to their job, no account creation, no password to reset. Progress, schedule, change orders, and invoices are all right where they left off the last time they checked.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/customer-portal.png" alt="Customer portal home showing job progress and schedule" />
+          <picture>
+            <source type="image/webp" srcset="../images/customer-portal.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/customer-portal.png" alt="Customer portal home showing job progress and schedule" width="1600" height="1125" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band feature-band--flip">
@@ -78,7 +145,11 @@
           <p>Contracts, change orders, and job photos post to the portal the moment they're finalized on the Job Profile. Nobody has to remember to forward a PDF or text a picture, it's already there.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/portal-docs.png" alt="Portal document library with signed contracts and job photos" />
+          <picture>
+            <source type="image/webp" srcset="../images/portal-docs.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/portal-docs.png" alt="Portal document library with signed contracts and job photos" width="1600" height="1125" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band">
@@ -87,7 +158,11 @@
           <p>Customers see what's due, deposits, draws, or the final invoice, and pay online without calling the office. Payments post back to the Job Profile so collected balance is never a guess.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/portal-billing.png" alt="Portal billing view with outstanding balance and online payment" />
+          <picture>
+            <source type="image/webp" srcset="../images/portal-billing.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/portal-billing.png" alt="Portal billing view with outstanding balance and online payment" width="1600" height="1125" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band feature-band--flip">
@@ -96,7 +171,11 @@
           <p>Every section of the portal, photos, punch list, documents, messaging, is a visibility toggle you control per job. Share the win without exposing the parts of the Job Profile that are none of the customer's business.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/customer-portal.png" alt="Office controls for which portal sections are visible to the customer" />
+          <picture>
+            <source type="image/webp" srcset="../images/customer-portal.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/customer-portal.png" alt="Office controls for which portal sections are visible to the customer" width="1600" height="1125" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
     </div>
@@ -115,6 +194,7 @@
   <section class="section section--graphite photo-band">
     <div class="container photo-band-inner">
       <div class="photo-band-media">
+        <!-- Photo: Unsplash, commercial-licensed. Pat confirming provenance / may swap for real MCA job-site photos. -->
         <img src="../images/photo-problem-side.jpg" width="1080" height="1240"
              alt="A contractor on an active job site reviewing work" loading="lazy">
       </div>
@@ -128,7 +208,7 @@
 
   <section class="section section--graphite hub-continue"><div class="container hub-continue-row">
     <a href="../features.html">← All features</a>
-    <a class="hub-continue-next" href="field-and-crew.html">Next: Field &amp; crew →</a>
+    <a class="hub-continue-next" href="../features/field-and-crew.html">Next: Field &amp; crew →</a>
   </div></section>
 
   <section class="cta-band"><div class="container">
@@ -142,29 +222,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="../brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="../features.html">Features</a>
         <a href="../pricing.html">Pricing</a>
         <a href="../integrations.html">Integrations</a>
+        <a href="../mcp.html">AI connector</a>
         <a href="../start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="../about.html">About</a>
         <a href="../who-its-for.html">Who it's for</a>
-        <a href="../branding.html">Branding</a>
         <a href="../contact.html">Contact</a>
         <a href="../contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="../compare-the-stack.html">vs the stack</a>
-        <a href="../compare-acculynx.html">vs Acculynx</a>
-        <a href="../compare-jobtread.html">vs JobTread</a>
-        <a href="../compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

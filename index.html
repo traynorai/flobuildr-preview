@@ -2,56 +2,91 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
-  <meta name="description" content="One platform for every job. Estimate, schedule, cost, invoice, and get paid on one record. Unlimited users, one flat price. Free for 60 days, no credit card." />
-  <title>FloBuildr | One platform to run every job, bid to final payment</title>
+  <meta name="description" content="Construction management software for remodelers, roofing, and specialty contractors. Estimate, schedule, cost, invoice, and get paid on one job. Unlimited users, one flat price. Free for 60 days." />
+  <title>Construction management software for remodelers | FloBuildr</title>
   <link rel="canonical" href="https://flobuildr.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="FloBuildr" />
   <meta property="og:url" content="https://flobuildr.com/" />
-  <meta property="og:title" content="FloBuildr | The whole job on one tool." />
-  <meta property="og:description" content="One price. Every feature. Unlimited users. Estimate, schedule, cost, invoice, and get paid on one record. Free for 60 days, no credit card." />
+  <meta property="og:title" content="Construction management software for the whole job" />
+  <meta property="og:description" content="For remodelers, roofing, and specialty contractors. One price, every feature, unlimited users. Free for 60 days." />
   <meta property="og:image" content="https://flobuildr.com/images/og-flobuildr.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FloBuildr | The whole job on one tool." />
-  <meta name="twitter:description" content="One price. Every feature. Unlimited users. Free for 60 days, no credit card." />
+  <meta name="twitter:title" content="Construction management software for the whole job" />
+  <meta name="twitter:description" content="For remodelers, roofing, and specialty contractors. Unlimited users. Free for 60 days." />
   <meta name="twitter:image" content="https://flobuildr.com/images/og-flobuildr.png" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "FloBuildr",
-      "url": "https://flobuildr.com/",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "description": "Construction management for remodeling and specialty contractors. Estimating, pipeline, scheduling, job costing, invoicing, and a customer portal on one job record.",
-      "offers": {
-        "@type": "Offer",
-        "price": "349.00",
-        "priceCurrency": "USD",
-        "description": "Platform subscription $399/mo, or $349/mo billed annually. Unlimited users, every feature included."
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "FloBuildr LLC",
-        "url": "https://flobuildr.com/",
-        "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
-        "email": "contact@flobuildr.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "6650 Rivers Ave STE 100",
-          "addressLocality": "Charleston",
-          "addressRegion": "SC",
-          "postalCode": "29406",
-          "addressCountry": "US"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "FloBuildr",
+          "url": "https://flobuildr.com/",
+          "applicationCategory": "BusinessApplication",
+          "applicationSubCategory": "Construction Management Software",
+          "operatingSystem": "Web",
+          "description": "Construction management software for remodeling, roofing, and specialty contractors. Estimating, pipeline, scheduling, job costing, invoicing, and a customer portal on one job record.",
+          "screenshot": "https://flobuildr.com/images/pipeline.png",
+          "image": "https://flobuildr.com/images/og-flobuildr.png",
+          "featureList": [
+            "Estimating and e-sign",
+            "Job worksheet and purchase orders",
+            "Scheduling and company calendar",
+            "Live job costing",
+            "Invoicing and online payments",
+            "Customer portal",
+            "Field time, photos, and punch lists"
+          ],
+          "offers": {
+            "@type": "AggregateOffer",
+            "url": "https://flobuildr.com/pricing",
+            "priceCurrency": "USD",
+            "lowPrice": "349.00",
+            "highPrice": "399.00",
+            "offerCount": 2,
+            "description": "Platform $399/mo, or $349/mo billed annually. Unlimited users, every feature included. 60-day free trial."
+          },
+          "publisher": { "@id": "https://flobuildr.com/#org" }
         }
-      }
+      ]
     }
   </script>
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favIcon.ico" />
   <link rel="stylesheet" href="styles.css" />
@@ -77,17 +112,23 @@
     </nav>
   </header>
 
+  <!-- Homepage art note: these four use the copy-matched home-* mockups from the port
+       work rather than Jake's pipeline/job-estimates/calendar/job-budget set, because
+       each one matches the section it sits beside. They have no .webp sibling yet, so
+       Jake's <picture> pattern is not applied here. When the real screenshots land,
+       generate webp siblings and restore <picture> to match the rest of the site. -->
   <section class="hero">
     <div class="container hero-inner">
       <p class="badge">Early adopter pricing</p>
-      <h1>The whole job on one tool. One flat price.</h1>
-      <p class="hero-lead">FloBuildr runs the whole job on one record. The estimate you sell becomes the work plan you run, and the budget updates itself as crews order materials and log hours, from first call to final payment.</p>
+      <h1>Construction management for remodelers and specialty trades</h1>
+      <p class="hero-lead">One price. Every feature. Unlimited users. FloBuildr runs the whole job on one record. The estimate you sell becomes the work plan you run, and the budget updates itself as crews order materials and log hours, from first call to final payment.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="start.html">Start free trial</a>
         <a class="btn btn-secondary btn-lg" href="contact.html">Book a demo</a>
       </div>
       <p class="cta-note">Free for 60 days. No credit card. Every feature on.</p>
       <div class="hero-shot">
+        <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
         <img src="images/home-hero-pipeline.png" alt="FloBuildr pipeline showing every job by stage from lead to final payment" width="1916" height="1468" />
       </div>
     </div>
@@ -95,14 +136,11 @@
 
   <section class="section section--graphite proof-band">
     <div class="container">
-      <p class="proof-band-title">Trusted by the crews putting it to work</p>
-      <!-- Replace with real customer logos once we have named, consenting firms. -->
-      <div class="logo-slots">
-        <span class="logo-slot">Logo</span>
-        <span class="logo-slot">Logo</span>
-        <span class="logo-slot">Logo</span>
-        <span class="logo-slot">Logo</span>
-        <span class="logo-slot">Logo</span>
+      <p class="proof-band-title">Running the whole job on FloBuildr</p>
+      <!-- MCA is named and linked with permission. Add a second logo only when another
+           firm is named and has consented. Do not pad this band with empty slots. -->
+      <div class="logo-slots logo-slots--single">
+        <a class="logo-slot logo-slot--named" href="https://mcaupstate.com/" target="_blank" rel="noopener"><img src="images/mca-logo-reverse.png" alt="MCA Construction and Roofing" width="480" height="480" /></a>
       </div>
     </div>
   </section>
@@ -128,6 +166,7 @@
   <section class="section section--graphite photo-band">
     <div class="container photo-band-inner">
       <div class="photo-band-media">
+        <!-- Photo: Unsplash, commercial-licensed. Pat confirming provenance / may swap for real MCA job-site photos. -->
         <img src="images/photo-problem-side.jpg" width="1080" height="1240"
              alt="A contractor on an active job site reviewing work" loading="lazy">
       </div>
@@ -144,7 +183,7 @@
     <div class="container">
       <p class="section-label">Why contractors switch</p>
       <h2>Built around how contractors actually run work.</h2>
-      <p class="section-lead">Not another generic field-service app with a construction skin. The Job Profile is the center of gravity. Estimates, worksheet, schedule, budget, invoices, and the customer portal all hang off the same job.</p>
+      <p class="section-lead">Not another generic field-service app with a construction skin. The Job Profile is the center of gravity. Estimates, worksheet, schedule, budget, invoices, and the customer portal all hang off the same job. See it for <a href="roofing.html">roofing</a>, <a href="remodeling.html">remodeling</a>, and <a href="specialty.html">specialty trades</a>.</p>
       <div class="pillars">
         <div class="pillar"><h3>Estimate → work plan</h3><p>Accept a bid and pull it into the worksheet. Change orders and add-ons stay on the same job, no parallel lists.</p></div>
         <div class="pillar"><h3>Actions that do work</h3><p>Advance a material to Ordered and open a PO. Mark Delivered and log the receipt. Assign labor and schedule the crew.</p></div>
@@ -235,6 +274,7 @@
           </ul>
         </div>
         <div class="feature-frame">
+          <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
           <img src="images/home-feat-estimate.png" alt="FloBuildr estimate with line items, margin, and e-signature" width="1080" height="675" />
         </div>
       </div>
@@ -250,6 +290,7 @@
           </ul>
         </div>
         <div class="feature-frame">
+          <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
           <img src="images/home-feat-worksheet.png" alt="FloBuildr worksheet with line-item lifecycle creating a PO and receipt" width="1080" height="675" />
         </div>
       </div>
@@ -265,6 +306,7 @@
           </ul>
         </div>
         <div class="feature-frame">
+          <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
           <img src="images/home-feat-budget.png" alt="FloBuildr Budget vs Actual with live cost by line type" width="1080" height="675" />
         </div>
       </div>
@@ -273,35 +315,22 @@
 
   <section class="section section--blueprint">
     <div class="container">
-      <h2>From the shops running it</h2>
-      <p class="section-lead">Real operators, real jobs. More going up as our first crews put it to work.</p>
-      <div class="card-grid quote-grid">
-        <!-- SLOT 1: replace with Bradley's real quote when Jake provides it. Keep SAMPLE badge until then. -->
-        <div class="card quote-card">
-          <span class="badge badge--sample">Sample</span>
-          <p class="quote">“We were paying for a roofing tool and a project tool that never talked to each other. Now the estimate I sell becomes the job we run and the invoice we send, on one record. Nobody re-types anything.”</p>
-          <p class="quote-meta"><strong>Sample Name</strong>, Owner<br />Sample Roofing &amp; Exteriors, [City, State]</p>
-        </div>
-        <div class="card quote-card">
-          <span class="badge badge--sample">Sample</span>
-          <p class="quote">“The unlimited-user thing is the part my office manager cares about. I put every PM and every crew lead in it and the bill did not move.”</p>
-          <p class="quote-meta"><strong>Sample Name</strong>, Operations Manager<br />Sample General Contracting</p>
-        </div>
-        <div class="card quote-card">
-          <span class="badge badge--sample">Sample</span>
-          <p class="quote">“I hand the homeowner a price on the first visit now. The estimate, the e-sign, and the deposit all happen before I leave the driveway.”</p>
-          <p class="quote-meta"><strong>Sample Name</strong>, Estimator<br />Sample Exteriors</p>
+      <h2>From the shop running it</h2>
+      <div class="card-grid quote-grid quote-grid--lead">
+        <!-- Bradley McHugh, MCA Construction & Roofing. Real, sourced, permission granted.
+             The two SAMPLE cards that used to sit beside this one were removed, not blanked.
+             Add a second card only when another quote is real and consented. -->
+        <div class="card quote-card quote-card--lead">
+          <p class="quote">“We were paying about $2,500 a month for AccuLynx and still fighting the handoffs. Things got retyped, details fell through. We wanted a system that didn’t just have everything, but actually felt like one continuous job from first bid to final payment. That’s the difference now. It finally feels like one process.”</p>
+          <p class="quote-meta"><strong>Bradley McHugh</strong>, Owner<br /><a class="quote-link" href="https://mcaupstate.com/" target="_blank" rel="noopener">MCA Construction &amp; Roofing</a></p>
         </div>
       </div>
       <p class="stats-strip">
-        <span class="confirm-tag">[CONFIRM: Jake]</span> jobs run
-        <span class="stats-dot">&middot;</span> unlimited users per shop
-        <span class="stats-dot">&middot;</span> <span class="confirm-tag">[CONFIRM: Jake]</span> avg estimate turnaround
+        20+ jobs run end to end
+        <span class="stats-dot">&middot;</span> about 30 people in the system, zero per-seat cost
+        <span class="stats-dot">&middot;</span> about $1M of work in progress
       </p>
-      <div class="review-chips">
-        <span class="review-chip">G2 (profile coming)</span>
-        <span class="review-chip">Capterra (profile coming)</span>
-      </div>
+      <p class="stats-attrib">From MCA Construction &amp; Roofing, running FloBuildr.</p>
     </div>
   </section>
 
@@ -342,7 +371,7 @@
       <h2>Everything on day one</h2>
       <p class="section-lead">You don’t unlock estimating, scheduling, or the portal later. The Platform plan is the full product. Office, field, and customer on one Job Profile.</p>
       <div class="card-grid">
-        <div class="card"><h3>Estimating &amp; proposals</h3><p>Line-item library with sections, markup, and tax. Live supplier pricing on the bid. FloBuildr AI drafts the pricing so a bid starts filled in. Branded PDFs, contract templates, and e-sign, including change orders mid-job. <a href="features/win-the-work.html">Learn more →</a></p></div>
+        <div class="card"><h3>Estimating &amp; proposals</h3><p>Line-item library with sections, markup, and tax. Live supplier pricing on the bid. FloBuildr AI drafts the pricing from regional benchmarks on real job data, so a bid starts filled in. Branded PDFs, contract templates, and e-sign, including change orders mid-job. <a href="features/win-the-work.html">Learn more →</a></p></div>
         <div class="card"><h3>Pipeline &amp; accounts</h3><p>Every job from Lead through Closed on one board, with stage value and velocity. Accounts hold customers, properties, and history so the next bid starts from the last job, not a blank form. <a href="features/win-the-work.html">Learn more →</a></p></div>
         <div class="card"><h3>Worksheet &amp; purchase orders</h3><p>Pull the accepted bid into the work plan. Advance a material to Ordered and open a PO; mark Delivered and log the receipt. Status, crew, and dates live on every line. <a href="features/run-the-job.html">Learn more →</a></p></div>
         <div class="card"><h3>Scheduling &amp; calendar</h3><p>A schedule on every job and one company calendar across labor, materials, permits, punch, and tasks, with reminders before crews are due. <a href="features/run-the-job.html">Learn more →</a></p></div>
@@ -353,7 +382,7 @@
         <div class="card"><h3>Workflows &amp; SMS</h3><p>Automate office follow-ups by email or text when stages change or estimates send, without turning personal phones into the company inbox. <a href="features/office-and-platform.html">Learn more →</a></p></div>
         <div class="card"><h3>Tasks, expenses &amp; permits</h3><p>Company and job tasks with owners and due dates. Expense tracking for the office. Permits and inspections tied to the job so nothing floats in email. <a href="features/run-the-job.html">Learn more →</a></p></div>
         <div class="card"><h3>Reporting</h3><p>Win rate, stage velocity, sales leaderboard, job margins, aging receivables, and crew hours, built for owners who still run work. <a href="features/costing-and-payments.html">Learn more →</a></p></div>
-        <div class="card"><h3>Roles, templates &amp; integrations</h3><p>Unlimited seats with assigned-vs-all permissions. Estimate and contract templates. QuickBooks Online, supplier pricing, property and roof data, and FloBuildr AI. <a href="features/office-and-platform.html">Learn more →</a></p></div>
+        <div class="card"><h3>Roles, templates &amp; integrations</h3><p>Unlimited seats with assigned-vs-all permissions. Estimate and contract templates. QuickBooks Online, supplier pricing, property and roof data, and FloBuildr AI, metered in tokens. <a href="features/office-and-platform.html">Learn more →</a></p></div>
       </div>
     </div>
   </section>
@@ -368,8 +397,11 @@
           records for up to 45 days. Nothing disappears on one bad click.</p>
         </div>
         <div class="card">
-          <h3>Payments handled by Stripe.</h3>
-          <p>Card payments run through Stripe, so card data never touches FloBuildr’s servers.</p>
+          <!-- Payment processor deliberately unnamed. Per Jake: white-labeled services are
+               not named on the site. Keep the capability, drop the vendor. -->
+          <h3>Card data never touches us.</h3>
+          <p>Card payments run through a certified payment processor, so card numbers never
+          land on FloBuildr’s servers.</p>
         </div>
         <div class="card">
           <h3>Real support from real people.</h3>
@@ -405,7 +437,7 @@
 
   <section class="cta-band">
     <div class="container">
-      <h2>Run the whole job on one tool.</h2>
+      <h2>Every job. One platform.</h2>
       <p class="section-lead">Start free and run a real job end to end. Estimate, schedule, cost, invoice, and get paid on one record.</p>
       <a class="btn btn-primary btn-lg" href="start.html">Start free trial</a>
       <a class="btn btn-secondary btn-lg" href="contact.html" style="margin-left:0.5rem">Book a demo</a>
@@ -416,29 +448,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
         <a href="start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
-  <meta name="description" content="FloBuildr privacy policy." />
+  <meta name="description" content="How FloBuildr collects, uses, and protects personal information for the marketing site, product, and customer accounts." />
   <title>Privacy Policy — FloBuildr</title>
   <link rel="canonical" href="https://flobuildr.com/privacy" />
   <meta property="og:type" content="website" />
@@ -14,10 +18,43 @@
   <meta property="og:title" content="Privacy Policy — FloBuildr" />
   <meta property="og:description" content="How FloBuildr collects, uses, and protects information." />
   <meta property="og:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favIcon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -42,7 +79,7 @@
   <section class="page-hero"><div class="container"><h1>Privacy Policy</h1></div></section>
   <section class="section section--ink"><div class="container prose">
         <div class="container container-narrow prose">
-            <p class="subtitle">Last updated: July 24, 2026</p>
+            <p class="subtitle">Last updated: August 26, 2026</p>
             <p>This Privacy Policy describes how Flobuildr LLC (“FloBuildr,” “we,” “us,” or “our”), a South Carolina limited liability company, collects, uses, discloses, and otherwise processes personal information in connection with our websites, applications, APIs, customer portals, electronic signing experiences, mobile apps, and related services (collectively, the “Services”). By accessing or using the Services, you acknowledge this Policy. If you do not agree, do not use the Services.</p>
             <p>This Policy should be read together with our <a href="terms.html">Terms of Service</a>. Capitalized terms not defined here have the meanings in the Terms.</p>
             <p>Contact for privacy matters: <em><a href="mailto:contact@flobuildr.com">contact@flobuildr.com</a></em>.</p>
@@ -95,7 +132,7 @@
                 <li>Maps, geocoding, and weather providers (for example, Google Maps Platform and OpenWeather) using addresses or coordinates.</li>
                 <li>Property data providers (for example, Realie) for property enrichment based on addresses Customers look up.</li>
                 <li>Supplier / materials systems (for example, connected distributors) for pricing, quotes, or orders when configured.</li>
-                <li>AI model providers (for example, OpenAI, Anthropic, or Google Gemini) when a Customer enables AI features and supplies or authorizes use of API credentials.</li>
+                <li>AI model providers via Amazon Bedrock (FloBuildr’s platform-managed AWS account) when a Customer enables AI features.</li>
                 <li>Cloud infrastructure providers (for example, Amazon Web Services) that host databases, files, email, logs, and compute.</li>
                 <li>Customer-configured webhooks that receive outbound event payloads the Customer elects to send.</li>
             </ul>
@@ -158,7 +195,7 @@
             <h2>8. Payments and Billing</h2>
             <p>Subscription fees for FloBuildr are processed through our payment processor. Separately, Customers may connect payment accounts (such as Stripe Connect) so End Customers can pay invoices. FloBuildr may receive transaction metadata, fee information, and limited card descriptors (for example, brand and last four digits). Full card numbers are collected by the payment processor’s secure fields and are not stored by FloBuildr. Payment processor terms and privacy policies apply to card processing.</p>
             <h2>9. Artificial Intelligence Features</h2>
-            <p>If a Customer enables AI features, prompts and context—which may include job details, account names, property addresses, line items, pipeline summaries, and similar operational content—may be sent to third-party AI providers using Customer-supplied or Customer-authorized credentials. Customers control whether to enable AI, which provider/key to use, and what content Authorized Users include in prompts. Do not include information in AI prompts that you are not authorized to process or disclose. We may log AI usage metadata such as provider, model, token counts, latency, cost estimates, and errors.</p>
+            <p>If a Customer enables AI features, prompts and context—which may include job details, account names, property addresses, line items, pipeline summaries, and similar operational content—may be sent to AI models through FloBuildr’s Amazon Bedrock account (platform-managed). Customers control whether to enable AI and what content Authorized Users include in prompts. Do not include information in AI prompts that you are not authorized to process or disclose. We may log AI usage metadata such as model, token counts, latency, cost estimates, and errors. Separately, FloBuildr may compute anonymized aggregate regional price benchmarks across Customers (k-anonymized so no company identity appears in suggestions) to power estimate pricing assist.</p>
             <h2>10. Cookies, Local Storage, and Similar Technologies</h2>
             <p>We and our service providers use cookies, pixels, local storage, session storage, and similar technologies to operate the Services, maintain sessions, remember preferences, measure performance, and detect abuse. Our marketing site and applications may send first-party telemetry (page views, performance, and diagnostic events) to our own observability endpoints. Third-party resources (such as Google Fonts) may receive IP address and referrer information when loaded by your browser. You can control cookies and storage through browser settings; disabling certain storage may break login or core functionality.</p>
             <h2>11. Data Retention</h2>
@@ -187,7 +224,7 @@
             <p>Flobuildr LLC is organized under the laws of South Carolina and operates in the United States. We process information in the United States and in other locations where we or our service providers operate. If you access the Services from outside the United States, you understand that your information may be transferred to, stored, and processed in the United States and other jurisdictions that may have different data-protection laws than your country. Where required, we use appropriate transfer mechanisms.</p>
             <h2>14. Your Privacy Choices and Rights</h2>
             <h3>14.1 Account Controls</h3>
-            <p>Authorized Users may update certain profile information in-product. Customers control much of the Customer Data in their tenant, including soft-deletion of certain records and revocation of portal or signing access.</p>
+            <p>Authorized Users may update certain profile information in-product. You can delete your login and the personal information you supplied from <strong>Settings → About Me → Delete account</strong> on the web app, or <strong>Settings → Delete account</strong> in FloBuildr Mobile. Deletion removes your password and profile fields (such as name, phone numbers, and photo). Your company keeps your email on work records so administrators can still identify who performed the work. Customers control much of the Customer Data in their tenant, including soft-deletion of certain records and revocation of portal or signing access.</p>
             <h3>14.2 Marketing</h3>
             <p>You may opt out of marketing emails by following unsubscribe instructions or contacting us. Transactional and service messages are not marketing and may continue.</p>
             <h3>14.3 Access, Correction, Deletion, and Other Requests</h3>
@@ -230,29 +267,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
         <a href="start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

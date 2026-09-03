@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
@@ -20,10 +24,69 @@
   <meta name="twitter:title" content="FloBuildr | win the work on one Job Profile" />
   <meta name="twitter:description" content="Pipeline, accounts, estimates, contracts, and change orders on one record." />
   <meta name="twitter:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="../brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="alternate icon" href="../favIcon.ico" />
   <link rel="stylesheet" href="../styles.css" />
   <script src="../obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flobuildr.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Features",
+      "item": "https://flobuildr.com/features"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Win the work",
+      "item": "https://flobuildr.com/features/win-the-work"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -53,12 +116,12 @@
 
   <nav class="hub-nav" aria-label="Feature areas"><div class="container">
     <a href="../features.html">Overview</a>
-    <a href="win-the-work.html" aria-current="page">Win the work</a>
-    <a href="run-the-job.html">Run the job</a>
-    <a href="costing-and-payments.html">Costing &amp; payments</a>
-    <a href="customer-portal.html">Customer portal</a>
-    <a href="field-and-crew.html">Field &amp; crew</a>
-    <a href="office-and-platform.html">Office &amp; platform</a>
+    <a href="../features/win-the-work.html" aria-current="page">Win the work</a>
+    <a href="../features/run-the-job.html">Run the job</a>
+    <a href="../features/costing-and-payments.html">Costing &amp; payments</a>
+    <a href="../features/customer-portal.html">Customer portal</a>
+    <a href="../features/field-and-crew.html">Field &amp; crew</a>
+    <a href="../features/office-and-platform.html">Office &amp; platform</a>
   </div></nav>
 
   <section class="section section--ink">
@@ -69,7 +132,11 @@
           <p>Every job moves through Lead → Prospect → Approved → In progress → Completed → Closed, with stage value rolling up so you always know active and total pipeline. Advance a job by hand, or let an accepted estimate move it for you, the stage reflects reality instead of a sales team's memory.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/pipeline.png" alt="Unified pipeline with stage totals and job list" />
+          <picture>
+            <source type="image/webp" srcset="../images/pipeline.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/pipeline.png" alt="Unified pipeline with stage totals and job list" width="1600" height="1015" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band feature-band--flip">
@@ -78,16 +145,24 @@
           <p>Customers, contacts, and properties live on the account, so the next estimate starts from real history instead of a blank CRM form. Multiple jobs at the same address or for the same homeowner stay connected, no re-entering the same contact three times a year.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/accounts.png" alt="Customer account with contacts, properties, and job history" />
+          <picture>
+            <source type="image/webp" srcset="../images/accounts.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/accounts.png" alt="Customer account with contacts, properties, and job history" width="1600" height="1000" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band">
         <div class="feature-copy">
           <h3>Estimates that become the work</h3>
-          <p>Build from a line-item library with sections, markup, tax, and live distributor pricing, plus FloBuildr AI to draft the pricing. Send a branded PDF for e-sign, and an accepted estimate auto-advances the job and pulls straight into the worksheet, production doesn't rebuild the bid from scratch.</p>
+          <p>Build from a line-item library with sections, markup, tax, and live distributor pricing, plus FloBuildr AI price assist working from regional benchmarks on real job data. Send a branded PDF for e-sign, and an accepted estimate auto-advances the job and pulls straight into the worksheet, production doesn't rebuild the bid from scratch.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/job-estimates.png" alt="Estimates on a job with accepted and draft statuses" />
+          <picture>
+            <source type="image/webp" srcset="../images/job-estimates.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/job-estimates.png" alt="Estimates on a job with accepted and draft statuses" width="1600" height="1124" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band feature-band--flip">
@@ -96,7 +171,11 @@
           <p>Attach a contract template to any estimate and collect the signature in the same send. The signed copy lands on the job, the account, and the customer portal automatically, so nobody hunts through email for the executed PDF at closeout.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/contracts-esign.png" alt="Contract attached to an estimate with e-signature status" />
+          <picture>
+            <source type="image/webp" srcset="../images/contracts-esign.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/contracts-esign.png" alt="Contract attached to an estimate with e-signature status" width="1600" height="1000" loading="lazy" decoding="async" />
+          </picture>
         </div>
       </div>
       <div class="feature-band">
@@ -105,7 +184,11 @@
           <p>Mid-job scope doesn't need a parallel change-order system. Price the add-on, send it for signature, and pull it into the worksheet the same way you did the original bid, contract value and budget update together.</p>
         </div>
         <div class="feature-frame">
-          <img src="../images/change-orders.png" alt="Change order priced and sent from an in-progress job" />
+          <picture>
+            <source type="image/webp" srcset="../images/change-orders.webp" />
+            <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
+            <img src="../images/change-orders.png" alt="Change order priced and sent from an in-progress job" width="1600" height="1124" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <!-- Guide ch 11, "Measuring roofs and properties (aerial tool)". The
              on-site verification note is load bearing: the guide is explicit
@@ -160,6 +243,7 @@
   <section class="section section--graphite photo-band">
     <div class="container photo-band-inner">
       <div class="photo-band-media">
+        <!-- Photo: Unsplash, commercial-licensed. Pat confirming provenance / may swap for real MCA job-site photos. -->
         <img src="../images/photo-problem-side.jpg" width="1080" height="1240"
              alt="A contractor on an active job site reviewing work" loading="lazy">
       </div>
@@ -173,7 +257,7 @@
 
   <section class="section section--graphite hub-continue"><div class="container hub-continue-row">
     <a href="../features.html">← All features</a>
-    <a class="hub-continue-next" href="run-the-job.html">Next: Run the job →</a>
+    <a class="hub-continue-next" href="../features/run-the-job.html">Next: Run the job →</a>
   </div></section>
 
   <section class="cta-band"><div class="container">
@@ -187,29 +271,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="../brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="../features.html">Features</a>
         <a href="../pricing.html">Pricing</a>
         <a href="../integrations.html">Integrations</a>
+        <a href="../mcp.html">AI connector</a>
         <a href="../start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="../about.html">About</a>
         <a href="../who-its-for.html">Who it's for</a>
-        <a href="../branding.html">Branding</a>
         <a href="../contact.html">Contact</a>
         <a href="../contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="../compare-the-stack.html">vs the stack</a>
-        <a href="../compare-acculynx.html">vs Acculynx</a>
-        <a href="../compare-jobtread.html">vs JobTread</a>
-        <a href="../compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

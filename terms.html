@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
-  <meta name="description" content="FloBuildr terms of use." />
+  <meta name="description" content="The terms of use that govern the FloBuildr platform, trials, and related services." />
   <title>Terms of Use — FloBuildr</title>
   <link rel="canonical" href="https://flobuildr.com/terms" />
   <meta property="og:type" content="website" />
@@ -14,10 +18,43 @@
   <meta property="og:title" content="Terms of Use — FloBuildr" />
   <meta property="og:description" content="The terms governing use of the FloBuildr platform." />
   <meta property="og:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favIcon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -116,7 +153,7 @@
             <p>FloBuildr does not screen, vet, endorse, or guarantee any contractor, project, or transaction facilitated through the payment features. End Customers should direct all questions about invoiced amounts, scope of work, refunds, and project completion to the contractor.</p>
             <h2>10. Integrations, Third-Party Services, and AI</h2>
             <p>Optional integrations (including accounting, maps, weather, property data, suppliers, webhooks, and AI model providers) are subject to the third party’s terms and privacy practices. Enabling an integration authorizes FloBuildr to exchange data with that third party as needed to provide the integration. FloBuildr is not responsible for third-party services, outages, data handling, or accuracy.</p>
-            <p>AI features may send prompts and context (which can include Customer Data) to third-party model providers using Customer-supplied or Customer-authorized API keys. AI outputs may be inaccurate, incomplete, or inappropriate. Customer remains solely responsible for reviewing AI outputs before use and for configuring AI access. FloBuildr does not warrant AI outputs.</p>
+            <p>AI features may send prompts and context (which can include Customer Data) to AI models through FloBuildr’s Amazon Bedrock account (platform-managed). FloBuildr may also use anonymized aggregate regional price benchmarks (k-anonymized; no company identity in suggestions) to assist with estimate pricing. AI outputs may be inaccurate, incomplete, or inappropriate. Customer remains solely responsible for reviewing AI outputs before use and for configuring AI access. FloBuildr does not warrant AI outputs.</p>
             <h2>11. Mobile Applications, Location, and SMS</h2>
             <p>Mobile apps may request permissions for camera, photos, microphone, and location. Location may be used for clock-in/out, geofencing, and related field workflows. Customer is responsible for providing any legally required employee/contractor notices and obtaining consents for workplace location monitoring. Users may revoke device permissions, which may disable related features.</p>
             <p>Customers may enable FloBuildr to send transactional SMS to End Customers about jobs and schedules (for example, appointment reminders and status updates). Message frequency varies. Message and data rates may apply. End Customers may reply HELP for help or STOP to cancel. Recipients may also text JOIN to opt in where keyword opt-in is supported.</p>
@@ -198,29 +235,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
         <a href="start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

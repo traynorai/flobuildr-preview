@@ -1133,6 +1133,8 @@ a.hub-card:hover .hub-card-more,
   .photo-band-media img { max-height: 320px; }
 }
 
+/* Photo: Unsplash, commercial-licensed. Pat confirming provenance / may swap for
+   real MCA job-site photos. */
 .has-photo-bg { position: relative; isolation: isolate; }
 .has-photo-bg::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
@@ -1142,6 +1144,8 @@ a.hub-card:hover .hub-card-more,
 }
 .has-photo-bg > .container { position: relative; z-index: 1; }
 
+/* Photo: Unsplash, commercial-licensed. Pat confirming provenance / may swap for
+   real MCA job-site photos. */
 .page-hero--photo {
   position: relative;
   background: linear-gradient(90deg, rgba(12, 13, 16, 0.92) 0%, rgba(12, 13, 16, 0.72) 45%, rgba(12, 13, 16, 0.35) 100%),
@@ -1150,6 +1154,8 @@ a.hub-card:hover .hub-card-more,
   border-bottom: 1px solid var(--amber-line);
 }
 
+/* Photo: Unsplash, commercial-licensed. Pat confirming provenance / may swap for
+   real MCA job-site photos. */
 /* CTA photo. Uses main's existing --cta-veil-* tokens, which were declared at
    :root but unused. The grid ::before is dialled back so it reads as texture
    over the photo rather than a second wash. */
@@ -1206,6 +1212,17 @@ a.hub-card:hover .hub-card-more,
 .quote-card .quote { font-size: 1rem; line-height: 1.55; font-weight: 400; color: var(--text-2); }
 .quote-card .quote-meta strong { color: var(--paper); }
 
+/* One real testimonial, shown with confidence. Not a slot in an empty row.
+   Used when the proof section carries a single sourced quote. */
+.quote-grid--lead { grid-template-columns: 1fr; max-width: 46rem; margin-inline: 0; }
+.quote-card--lead { padding: 2.25rem 2rem; text-align: left; }
+.quote-card--lead .quote { font-size: 1.2rem; line-height: 1.6; color: var(--text); }
+.quote-card--lead .quote-meta { margin-top: 1.1rem; font-size: 0.95rem; }
+
+/* A single named logo sits at its own size instead of stretching across five slots. */
+.logo-slots--single { justify-content: flex-start; }
+.logo-slots--single .logo-slot { flex: 0 0 auto; min-width: 11rem; }
+
 /* Unconfirmed facts. Dashed outline so they are obviously provisional on screen
    and cannot ship unnoticed. */
 .confirm-tag, .draft-tag {
@@ -1225,6 +1242,35 @@ a.hub-card:hover .hub-card-more,
   font-size: 0.95rem;
 }
 .stats-dot { color: var(--text-muted); margin: 0 0.5rem; }
+/* Attribution under the stats strip. The numbers belong to a named shop, not to us. */
+.stats-attrib {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Link inside a quote attribution. Reads as text first, link second. */
+.quote-link { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--border); }
+.quote-link:hover { color: var(--paper); border-bottom-color: var(--text-muted); }
+
+/* Long-form testimonial. One voice, given room. Used where a full quote earns
+   the space, not in the three-up card grid. */
+.pull-quote {
+  margin: 1.25rem 0 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--amber-line);
+  max-width: 46rem;
+}
+.pull-quote p {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--paper);
+  margin-bottom: 1rem;
+}
+.pull-quote-meta { font-size: 0.9rem; color: var(--text-muted); }
+.pull-quote-meta strong { color: var(--text-2); }
 
 .review-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
 .review-chip {
@@ -1249,7 +1295,7 @@ a.hub-card:hover .hub-card-more,
 .logo-slots { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .logo-slot {
   flex: 1 1 8rem;
-  min-height: 3rem;
+  min-height: 5rem;
   display: flex; align-items: center; justify-content: center;
   border: 1px dashed var(--border);
   border-radius: var(--radius);
@@ -1258,6 +1304,26 @@ a.hub-card:hover .hub-card-more,
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
+/* A named, consenting customer. Solid edge so it reads as real next to the
+   dashed placeholders, but the same box as every other slot. */
+.logo-slot--named {
+  border-style: solid;
+  text-decoration: none;
+  padding: 0.25rem 0.75rem;
+}
+/* The source PNG is a 480x480 frame holding a 441x327 mark, so about a third of
+   its height is transparent padding. Sizing the frame to 4.5rem lands the visible
+   mark near 3rem, roughly 60 percent of the 5rem slot, matching the other slots
+   in weight. If the asset is ever re-cropped tight, drop this back to about 3rem. */
+.logo-slot--named img {
+  display: block;
+  max-height: 4.5rem;
+  max-width: 100%;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.logo-slot--named:hover { border-color: var(--text-muted); }
 
 .founder-slot {
   min-height: 12rem;
@@ -1307,6 +1373,18 @@ a.hub-card:hover .hub-card-more,
 .cost-land {
   margin-top: 1.5rem; font-family: var(--font-h); font-weight: 800;
   font-size: clamp(1.3rem, 2.4vw, 1.9rem); color: var(--paper); max-width: 44rem;
+}
+
+/* A real, sourced stack cost from a named customer. Sits above the illustrative
+   worked example, because the real number is the stronger argument. */
+.stack-real {
+  margin-top: 1.75rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--amber-line);
+  max-width: 46rem;
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .grid-scroll { overflow-x: auto; margin-top: 1.5rem; }

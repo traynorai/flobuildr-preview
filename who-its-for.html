@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
@@ -20,10 +24,63 @@
   <meta name="twitter:title" content="Built for contractors who run whole jobs" />
   <meta name="twitter:description" content="Sell the work, run the work, get paid, on one platform." />
   <meta name="twitter:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favIcon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flobuildr.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Who it's for",
+      "item": "https://flobuildr.com/who-its-for"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -47,15 +104,22 @@
 
   <section class="page-hero page-hero--photo"><div class="container">
     <p class="section-label">Who it's for</p>
-    <h1>Contractors who run whole jobs</h1>
+    <h1>Construction software for remodeling and specialty contractors</h1>
     <p class="section-lead">If you sell the work, schedule the crew, buy the materials, and collect the draw. FloBuildr is built for you. If you only need a dispatch board for service tickets, there are cheaper tools.</p>
   </div></section>
 
+  <nav class="hub-nav" aria-label="Trades"><div class="container">
+    <a href="who-its-for.html" aria-current="page">All trades</a>
+    <a href="roofing.html">Roofing</a>
+    <a href="remodeling.html">Remodeling</a>
+    <a href="specialty.html">Specialty</a>
+  </div></nav>
+
   <section class="section section--ink"><div class="container card-grid">
-    <div class="card"><h3>Roofing &amp; exterior</h3><p>Live supplier pricing on the estimate, roof measurements when you need them, weather on the job dashboard, and change orders that don’t get lost between sales and production.</p></div>
-    <div class="card"><h3>General remodelers</h3><p>One Job Profile from first walkthrough through punch list. Sales, office, and crew look at the same worksheet, schedule, and budget.</p></div>
-    <div class="card"><h3>Light commercial too</h3><p>A commercial reroof, a strip mall unit, a small tenant fit-out. Residential and light commercial both run on FloBuildr. You only need a commercial platform when your work lives in RFIs, submittals, and AIA billing, and most contractors searching for one do not.</p></div>
-    <div class="card"><h3>Specialty trades</h3><p>Unlimited users so you can put estimators, PMs, and field leads on without counting seats. Workflows and SMS keep follow-ups off personal phones.</p></div>
+    <a class="hub-card" href="roofing.html"><h3>Roofing &amp; exterior</h3><p>Live supplier pricing on the estimate, roof measurements when you need them, weather on the job dashboard, and change orders that don’t get lost between sales and production.</p><span class="hub-card-more">Roofing software →</span></a>
+    <a class="hub-card" href="remodeling.html"><h3>General remodelers</h3><p>One Job Profile from first walkthrough through punch list. Sales, office, and crew look at the same worksheet, schedule, and budget.</p><span class="hub-card-more">Remodeling software →</span></a>
+    <div class="hub-card"><h3>Light commercial too</h3><p>A commercial reroof, a strip mall unit, a small tenant fit-out. Residential and light commercial both run on FloBuildr. You only need a commercial platform when your work lives in RFIs, submittals, and AIA billing, and most contractors searching for one do not.</p></div>
+    <a class="hub-card" href="specialty.html"><h3>Specialty trades</h3><p>Unlimited users so you can put estimators, PMs, and field leads on without counting seats. Workflows and SMS keep follow-ups off personal phones.</p><span class="hub-card-more">Specialty software →</span></a>
   </div></section>
 
   <section class="section section--blueprint"><div class="container">
@@ -108,29 +172,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
         <a href="start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>

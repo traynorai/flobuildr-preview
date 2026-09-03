@@ -1,3 +1,3 @@
-# Private preview build. Placeholder content. Do not index.
+# Private preview build for review. Not the live site. Do not index.
 User-agent: *
 Disallow: /

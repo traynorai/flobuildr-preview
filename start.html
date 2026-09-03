@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta name="robots" content="noindex, nofollow">
+  <!-- Preview build only. Telemetry is pointed at a local base so this review copy
+       never writes pageviews or contact submissions into production. The repo
+       branch keeps Jake's production behaviour untouched. -->
+  <meta name="flobuildr-telemetry-base" content="http://localhost:3009" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0C0D10" />
@@ -20,10 +24,127 @@
   <meta name="twitter:title" content="Start a free 60-day FloBuildr trial" />
   <meta name="twitter:description" content="Every feature on, unlimited users, no credit card." />
   <meta name="twitter:image" content="https://flobuildr.com/images/og-flobuildr.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:alt" content="FloBuildr construction management software" />
+  <link rel="preload" href="brand/fonts/Archivo-800.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favIcon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="obs.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://flobuildr.com/#org",
+          "name": "FloBuildr LLC",
+          "url": "https://flobuildr.com/",
+          "logo": "https://flobuildr.com/brand/png/horizontal/flobuildr-horizontal-reverse-1600.png",
+          "email": "contact@flobuildr.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6650 Rivers Ave STE 100",
+            "addressLocality": "Charleston",
+            "addressRegion": "SC",
+            "postalCode": "29406",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://flobuildr.com/#website",
+          "url": "https://flobuildr.com/",
+          "name": "FloBuildr",
+          "publisher": { "@id": "https://flobuildr.com/#org" }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flobuildr.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Start free trial",
+      "item": "https://flobuildr.com/start"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a credit card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Company name, your name, and an email. Nothing is charged until you add a payment method after the trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included for 60 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every feature, unlimited users, and enough usage to run real jobs end to end. Trial allowances are lighter than paid Platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the magic link doesn't arrive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check spam. The link is good for seven days and works once. Still missing? Email contact@flobuildr.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start empty instead of sample data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Choose Empty, with my own jobs on the form. Sample data can be cleared later if you start with it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my data after 60 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your account and your jobs stay put. Add a payment method to continue on Platform. We warn you inside the app well before the trial ends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I put my whole crew in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and you should. Users are unlimited on the trial and on Platform, so office, sales, PMs, and field all go in without changing the price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to talk to anyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Start the trial and run a job. Book a demo if you would rather be walked through it, but nothing requires a call."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -112,6 +233,7 @@
           <p class="section-lead">We sent a sign-in link to <strong id="signup-success-email" style="color:var(--paper)"></strong>. Open it to set your password and your account is ready.</p>
           <p>The link is good for seven days and can only be used once. If it hasn’t arrived in a few minutes, check spam, or <a href="contact.html">tell us</a> and we’ll sort it out.</p>
           <!-- FLAG for Jake: confirm the magic-link console print is gated out of production. -->
+          <p id="signup-success-local" hidden style="font-size:0.85rem;color:var(--text-muted);margin-top:1rem">Local tip: the magic link is also printed in the server console as <code>Self-serve trial invite (non-prod)</code>.</p>
         </div>
       </div>
 
@@ -130,15 +252,37 @@
   </section>
 
   <section class="section section--graphite"><div class="container">
-    <p class="section-label">Before you start</p>
-    <h2>The questions everyone asks.</h2>
-    <div class="card-grid">
-      <div class="card"><h3>What does the trial actually include?</h3><p>Sixty days, every feature switched on, unlimited users. Not a cut down tier with the good parts locked.</p></div>
-      <div class="card"><h3>Do I need a credit card?</h3><p>No. A company name, your name, and an email. Nothing is charged and no card goes on file until you decide to keep going.</p></div>
-      <div class="card"><h3>What happens to my data after 60 days?</h3><p>Your account and your jobs stay put. Add a payment method to continue. We warn you inside the app well before the trial ends.</p></div>
-      <div class="card"><h3>Can I put my whole crew in?</h3><p>Yes, and you should. Users are unlimited on the trial and on Platform, so office, sales, PMs, and field all go in without changing the price.</p></div>
-      <div class="card"><h3>Do I have to talk to anyone?</h3><p>No. Start the trial and run a job. Book a demo if you would rather be walked through it, but nothing requires a call.</p></div>
-      <div class="card"><h3>Can I start with example data?</h3><p>Yes. Pick sample data and a few example jobs, estimates, and invoices are already there to click around. Clear it whenever you want.</p></div>
+    <p class="section-label">Questions</p>
+    <h2>Before you start</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Do I need a credit card?</h3>
+        <p>No. Company name, your name, and an email. Nothing is charged until you add a payment method after the trial.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What’s included for 60 days?</h3>
+        <p>Every feature, unlimited users, and enough usage to run real jobs end to end. Trial allowances are lighter than paid Platform, and you can see what’s left in Settings.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the magic link doesn’t arrive?</h3>
+        <p>Check spam. The link is good for seven days and works once. Still missing? Email contact@flobuildr.com or use the contact form and we’ll send another.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I start empty instead of sample data?</h3>
+        <p>Yes. Choose “Empty, with my own jobs” on the form. Sample data can be cleared later if you start with it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What happens to my data after 60 days?</h3>
+        <p>Your account and your jobs stay put. Add a payment method to continue on Platform. We warn you inside the app well before the trial ends.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I put my whole crew in?</h3>
+        <p>Yes, and you should. Users are unlimited on the trial and on Platform, so office, sales, PMs, and field all go in without changing the price.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I have to talk to anyone?</h3>
+        <p>No. Start the trial and run a job. Book a demo if you would rather be walked through it, but nothing requires a call.</p>
+      </div>
     </div>
   </div></section>
 
@@ -146,29 +290,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="brand/svg/flobuildr-horizontal-reverse.svg" alt="FloBuildr" height="28" />
-        <p>The whole job on one tool.<br />From first call to final payment, for remodeling and specialty contractors.</p>
+        <p>Every job. One platform.<br />From first call to final payment, for remodeling and specialty contractors.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="integrations.html">Integrations</a>
+        <a href="mcp.html">AI connector</a>
         <a href="start.html">Start free trial</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
         <a href="who-its-for.html">Who it's for</a>
-        <a href="branding.html">Branding</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html">Book a demo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Compare</h4>
-        <a href="compare-the-stack.html">vs the stack</a>
-        <a href="compare-acculynx.html">vs Acculynx</a>
-        <a href="compare-jobtread.html">vs JobTread</a>
-        <a href="compare-procore.html">vs Procore</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
@@ -242,9 +379,9 @@
         host === '127.0.0.1' ||
         host === '[::1]' ||
         host === '::1';
-      const apiUrl = isLocal
-        ? 'http://localhost:3009/api/signup/start'
-        : 'https://api.flobuildr.com/api/signup/start';
+      const apiBase = (window.flobuildrObs && window.flobuildrObs.apiBase)
+        || (isLocal ? 'http://localhost:3009' : 'https://api.flobuildr.com');
+      const apiUrl = apiBase + '/api/signup/start';
 
       fetch(apiUrl, {
         method: 'POST',
