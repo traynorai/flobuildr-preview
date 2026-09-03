@@ -215,6 +215,30 @@ p { margin: 0 0 1em; color: var(--text-2); }
 .hero-inner { position: relative; z-index: 1; max-width: 960px; }
 .hero-brand { margin-bottom: 1.5rem; }
 .hero-brand img { height: 48px; width: auto; }
+/* Hero kicker row. The tagline leads and the early-adopter badge sits beside it,
+   so the top of the page reads brand line, then price cue, then headline, without
+   stacking three separate lines above the H1. Wraps to two rows on narrow screens. */
+.hero-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.9rem;
+  margin-bottom: 1rem;
+}
+.hero-kicker .badge { margin-bottom: 0; }
+
+/* Archivo, confident, and deliberately smaller than the H1 so it frames the
+   headline instead of competing with it. Paper, no new colours, no amber. */
+.hero-tagline {
+  margin: 0;
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--paper);
+}
+
 .hero h1 {
   font-size: clamp(2.4rem, 5vw, 3.5rem);
   font-weight: 800;
