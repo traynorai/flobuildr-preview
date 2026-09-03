@@ -540,6 +540,17 @@ p { margin: 0 0 1em; color: var(--text-2); }
   font-size: 0.9rem;
   color: var(--text-muted);
 }
+/* The price-holds-flat beat. Reads as body copy, not a banner: no amber, no panel,
+   just paper text with a little more presence than a muted price note. */
+.price-hold {
+  margin-top: 1.5rem;
+  max-width: 46rem;
+  color: var(--text-2);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+.price-hold + .price-hold { margin-top: 0.9rem; }
+
 .price-allotments {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1399,7 +1410,7 @@ a.hub-card:hover .hub-card-more,
   font-size: clamp(1.3rem, 2.4vw, 1.9rem); color: var(--paper); max-width: 44rem;
 }
 
-/* A real, sourced stack cost from a named customer. Sits above the illustrative
+/* A real, sourced stack cost from our co-founder's own company. Sits above the illustrative
    worked example, because the real number is the stronger argument. */
 .stack-real {
   margin-top: 1.75rem;
