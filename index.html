@@ -112,11 +112,12 @@
     </nav>
   </header>
 
-  <!-- Homepage art note: these four use the copy-matched home-* mockups from the port
-       work rather than Jake's pipeline/job-estimates/calendar/job-budget set, because
-       each one matches the section it sits beside. They have no .webp sibling yet, so
-       Jake's <picture> pattern is not applied here. When the real screenshots land,
-       generate webp siblings and restore <picture> to match the rest of the site. -->
+  <!-- Homepage art note: the hero and the first two feature bands now use real app
+       captures (screen-dashboard, screen-estimate, screen-worksheet). The third band
+       still uses the home-feat-budget mockup and keeps its REPLACE marker. None of the
+       screen-* files has a .webp sibling yet, so the picture/source pattern is
+       deliberately not used on them: a stale source element would serve the old image.
+       Generate webp siblings and restore that pattern when convenient. -->
   <section class="hero">
     <div class="container hero-inner">
       <!-- Brand line framing the headline. The tagline is the primary kicker and
@@ -134,8 +135,7 @@
       </div>
       <p class="cta-note">Free for 60 days. No credit card. Every feature on.</p>
       <div class="hero-shot">
-        <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
-        <img src="images/home-hero-pipeline.png" alt="FloBuildr pipeline showing every job by stage from lead to final payment" width="1916" height="1468" />
+        <img src="images/screen-dashboard.png" alt="FloBuildr job dashboard with budget, invoicing, and the morning risk briefing on one job" width="1920" height="1500" />
       </div>
     </div>
   </section>
@@ -282,8 +282,7 @@
           </ul>
         </div>
         <div class="feature-frame">
-          <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
-          <img src="images/home-feat-estimate.png" alt="FloBuildr estimate with line items, margin, and e-signature" width="1080" height="675" />
+          <img src="images/screen-estimate.png" alt="FloBuildr estimate with line items, roof measurements, margin, and totals" width="1920" height="1580" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="feature-band feature-band--flip">
@@ -298,8 +297,7 @@
           </ul>
         </div>
         <div class="feature-frame">
-          <!-- REPLACE: needs real current app screenshot, Jake/Bradley to supply. -->
-          <img src="images/home-feat-worksheet.png" alt="FloBuildr worksheet with line-item lifecycle creating a PO and receipt" width="1080" height="675" />
+          <img src="images/screen-worksheet.png" alt="FloBuildr worksheet with material and labor lines, status, and live cost" width="1920" height="1620" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="feature-band">
