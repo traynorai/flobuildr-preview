@@ -1457,11 +1457,15 @@ a.hub-card:hover .hub-card-more,
 .trust-beat { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
 @media (max-width: 800px) { .trust-beat { grid-template-columns: 1fr; } }
 
-/* Lightbox for product screenshots.
+/* Screenshot viewer.
    Scoped to img.zoomable, applied only to screenshots in feature frames and the
    homepage hero shot. Photos, the logo, the MCA mark, and the brand specimens
    never carry the class, so they are never zoomable. The in-page size and
-   framing of every screenshot is unchanged: this is purely additive. */
+   framing of every screenshot is unchanged: this is purely additive.
+
+   The stage is the scroll viewport. The image is sized in px by JS, opening at
+   the stage width and never smaller than it was in the page, so a tall screen
+   overflows vertically and scrolls instead of being shrunk to fit the height. */
 img.zoomable { cursor: zoom-in; }
 img.zoomable:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 
@@ -1470,10 +1474,6 @@ img.zoomable:focus-visible { outline: 2px solid var(--amber); outline-offset: 3p
   inset: 0;
   z-index: 200;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2vh 2vw;
-  overflow: auto;
   background: var(--lb-veil);
   cursor: zoom-out;
   opacity: 0;
@@ -1483,47 +1483,77 @@ img.zoomable:focus-visible { outline: 2px solid var(--amber); outline-offset: 3p
 .lb-overlay[hidden] { display: none; }
 .lb-overlay.is-open { opacity: 1; }
 
-.lb-stage { margin: auto; display: flex; }
+.lb-stage {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 3.75rem 0 2rem;
+  text-align: center;
+  /* One finger pans, two fingers pinch, both handled by the browser on touch. */
+  touch-action: pan-x pan-y pinch-zoom;
+  overscroll-behavior: contain;
+}
+.lb-stage:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
+
 .lb-img {
   display: block;
-  max-width: 92vw;
-  max-height: 92vh;
-  width: auto;
+  margin: 0 auto;
   height: auto;
+  max-width: none;          /* JS owns the width, so no cap may fight it */
+  max-height: none;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
   background: var(--graphite);
-  cursor: default;
-  /* Leave the browser's own pinch-zoom available on the enlarged screen. */
-  touch-action: pinch-zoom;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.lb-close {
+.lb-bar {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--elevated);
+}
+.lb-pct {
+  min-width: 3.4rem;
+  text-align: center;
+  font-family: var(--font-b);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+.lb-btn {
+  min-width: 2.1rem;
+  height: 2.1rem;
+  padding: 0 0.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-b);
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   line-height: 1;
   color: var(--paper);
-  background: var(--elevated);
-  border: 1px solid var(--border);
+  background: transparent;
+  border: 1px solid transparent;
   border-radius: 999px;
   cursor: pointer;
 }
-.lb-close:hover { border-color: var(--text-muted); }
-.lb-close:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.lb-btn:hover:not(:disabled) { border-color: var(--border); background: var(--graphite); }
+.lb-btn:disabled { color: var(--text-muted); cursor: default; }
+.lb-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.lb-reset { font-size: 0.8rem; font-weight: 600; }
+.lb-close { font-size: 1.5rem; }
 
-/* On a phone these screens are too dense to fit inside the viewport height.
-   Fill the width, let the overlay scroll, and keep pinch-zoom for the detail. */
 @media (max-width: 700px) {
-  .lb-overlay { align-items: flex-start; padding: 3.5rem 0.5rem 1rem; }
-  .lb-img { width: 96vw; max-width: 96vw; max-height: none; }
+  .lb-stage { padding-top: 3.25rem; }
+  .lb-bar { top: 0.5rem; right: 0.5rem; gap: 0.15rem; }
+  .lb-pct { min-width: 2.9rem; font-size: 0.72rem; }
+  .lb-btn { min-width: 1.9rem; height: 1.9rem; padding: 0 0.45rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
