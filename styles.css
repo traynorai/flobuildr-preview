@@ -1457,14 +1457,10 @@ a.hub-card:hover .hub-card-more,
 .trust-beat { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
 @media (max-width: 800px) { .trust-beat { grid-template-columns: 1fr; } }
 
-/* Inline route from the pricing stack block into the worked comparisons. */
-.cmp-links-inline {
-  margin-top: 1.1rem;
-  max-width: 46rem;
-  color: var(--text-2);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
+/* The four comparisons on the pricing page sit two by two rather than the
+   default three across, so the fourth does not orphan on its own row. */
+.cmp-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 800px) { .cmp-grid { grid-template-columns: 1fr; } }
 
 /* Screenshot viewer.
    Scoped to img.zoomable, applied only to screenshots in feature frames and the
