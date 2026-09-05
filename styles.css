@@ -53,6 +53,7 @@
   --link: #C8CCD2;
   --amber-faint: rgba(242, 162, 28, 0.1);
   --amber-line: rgba(242, 162, 28, 0.45);
+  --lb-veil: rgba(12, 13, 16, 0.92);
   /* Lowered from main's original 0.78 so photo-cta-bg.jpg reads as a photograph
      over the darker carbon base. Legibility re-measured, see the port notes. */
   --cta-veil-top: rgba(12, 13, 16, 0.60);
@@ -1455,3 +1456,76 @@ a.hub-card:hover .hub-card-more,
 .diff-more { margin-top: 1.35rem; max-width: 52rem; }
 .trust-beat { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
 @media (max-width: 800px) { .trust-beat { grid-template-columns: 1fr; } }
+
+/* Lightbox for product screenshots.
+   Scoped to img.zoomable, applied only to screenshots in feature frames and the
+   homepage hero shot. Photos, the logo, the MCA mark, and the brand specimens
+   never carry the class, so they are never zoomable. The in-page size and
+   framing of every screenshot is unchanged: this is purely additive. */
+img.zoomable { cursor: zoom-in; }
+img.zoomable:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 2vw;
+  overflow: auto;
+  background: var(--lb-veil);
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+/* Needed because the display above would otherwise beat the hidden attribute. */
+.lb-overlay[hidden] { display: none; }
+.lb-overlay.is-open { opacity: 1; }
+
+.lb-stage { margin: auto; display: flex; }
+.lb-img {
+  display: block;
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--graphite);
+  cursor: default;
+  /* Leave the browser's own pinch-zoom available on the enlarged screen. */
+  touch-action: pinch-zoom;
+}
+
+.lb-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-b);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--paper);
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.lb-close:hover { border-color: var(--text-muted); }
+.lb-close:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* On a phone these screens are too dense to fit inside the viewport height.
+   Fill the width, let the overlay scroll, and keep pinch-zoom for the detail. */
+@media (max-width: 700px) {
+  .lb-overlay { align-items: flex-start; padding: 3.5rem 0.5rem 1rem; }
+  .lb-img { width: 96vw; max-width: 96vw; max-height: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-overlay { transition: none; }
+}
